@@ -13,7 +13,7 @@ class LeftPanel(QWidget):
         self.layout.setSpacing(10)  # 버튼 간격 설정
         self.layout.setAlignment(Qt.AlignTop)  # 버튼을 상단 정렬
 
-        buttons = ["유저", "체험단", "커뮤니티", "설문", "쿠폰"]
+        buttons = ["유저", "체험단", "커뮤니티", "설문", "쿠폰", "신고"]
         self.buttons = []  # 버튼 리스트 저장
 
         for btn_label in buttons:

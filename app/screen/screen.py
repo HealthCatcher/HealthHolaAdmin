@@ -1,19 +1,20 @@
-from app.screen.experience_screen import ExperienceScreen
-from app.screen.user_screen import UserScreen
+from PySide6.QtWidgets import QWidget, QVBoxLayout, QLabel
 
+class Screen(QWidget):
+    def __init__(self, title="기본 화면"):
+        super().__init__()
 
-class Screen:
-    """ 화면을 관리하는 클래스 (ScreenPanel의 콘텐츠 변경) """
-    def __init__(self, screen_panel):
-        self.screen_panel = screen_panel  # UI 패널 연결
+        # 기본 레이아웃 설정
+        self.layout = QVBoxLayout(self)
+        self.setLayout(self.layout)
 
-        # 각 버튼과 연결될 화면 저장
-        self.screens = {
-            "유저": UserScreen(),
-            "체험단": ExperienceScreen()
-        }
+        # 화면 제목 설정
+        self.title_label = QLabel(title)
+        self.layout.addWidget(self.title_label)
 
-    def update_content(self, screen_name):
-        """ 화면을 변경하는 메서드 """
-        if screen_name in self.screens:
-            self.screen_panel.set_screen(self.screens[screen_name])
+        # 기본 스타일 적용
+        self.setStyleSheet("background-color: white; font-size: 16px; padding: 20px;")
+
+    def update_content(self, content):
+        """ 화면 내용을 변경하는 공통 메서드 """
+        self.title_label.setText(content)
