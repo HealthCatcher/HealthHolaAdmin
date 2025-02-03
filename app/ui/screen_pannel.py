@@ -1,6 +1,6 @@
 from PySide6.QtWidgets import QWidget, QStackedLayout, QLabel
 
-from app.screen.user_screen import UserScreen
+from app.view.user_screen import UserScreen
 
 
 class ScreenPanel(QWidget):
