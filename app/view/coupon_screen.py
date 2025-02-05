@@ -1,4 +1,5 @@
-from PySide6.QtWidgets import QListWidget, QPushButton, QLabel, QVBoxLayout, QHBoxLayout, QLineEdit, QFormLayout
+from PySide6.QtWidgets import QListWidget, QPushButton, QLabel, QVBoxLayout, QHBoxLayout, QLineEdit, QFormLayout, \
+    QSizePolicy
 from app.view.screen import Screen
 
 
@@ -69,7 +70,9 @@ class CouponScreen(Screen):
         self.save_button.clicked.connect(self.handle_update_coupon)
         self.delete_button.clicked.connect(self.handle_delete_coupon)
 
-        right_layout.addWidget(QLabel("쿠폰 정보"))
+        coupon_info_container = QLabel("쿠폰 정보")
+        coupon_info_container.setSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
+        right_layout.addWidget(coupon_info_container)
         right_layout.addLayout(form_layout)
         right_layout.addWidget(self.add_button)
         right_layout.addWidget(self.save_button)
